@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const aggregatePaginate = require("mongoose-aggregate-paginate-v2");
+
 const Review = require("./review");
 const Schema = mongoose.Schema;
 
@@ -45,6 +47,8 @@ const campgroundSchema = new Schema(
   },
   opts
 );
+
+campgroundSchema.plugin(aggregatePaginate);
 
 campgroundSchema.virtual("properties.popUpMarkup").get(function () {
   return `<a href="/campgrounds/${this._id}">

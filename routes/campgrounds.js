@@ -4,6 +4,8 @@ const multer = require("multer");
 const { storage } = require("../cloudinary");
 const upload = multer({ storage });
 const catchAsync = require("../utils/catchAsync");
+//Model
+const Campground = require("../models/campground");
 //Middleware
 const { isLoggedIn, isAuthor, validateCampground } = require("../middleware");
 
@@ -24,6 +26,22 @@ router
 // });
 
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
+router.get("/paginated", async (req, res) => {
+  const aggregateQuery = Campground.aggregate();
+
+  Campground.aggregatePaginate(
+    aggregateQuery,
+    { page: 1, limit: 2 },
+    function (err, result) {
+      if (err) {
+        console.err(err);
+      } else {
+        const data = result.docs;
+        res.render("campgrounds/paginated", { data });
+      }
+    }
+  );
+});
 
 router.get(
   "/:id/edit",
