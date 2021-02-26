@@ -1,0 +1,52 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+      <div class="card shadow">
+        <img
+          src="/assets/images/adrian-TvN54bnuQg8-unsplash.jpg"
+          alt="tent in the forest"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h4 class="card-title">Login</h4>
+          <form action="/login" method="POST" class="validated-form" novalidate>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                name="username"
+                id="username"
+                autofocus
+                autocomplete="off"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-success">Login</button>
+            </div>
+          </form>
+          <div class="card-footer text-center text-muted">
+            <a href="/register" class="btn btn-transparent card-link"
+              >Register</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
