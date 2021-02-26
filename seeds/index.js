@@ -4,7 +4,7 @@ const Campground = require("../models/campground");
 const { descriptors, places } = require("./seedHelpers");
 const cities = require("./cities");
 
-mongoose.connect("mongodb://localhost:27017/yelp-camp", {
+mongoose.connect("mongodb://localhost:27017/yelp-camp-paginated", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -25,10 +25,10 @@ const randomIdx = (array) => {
 
 const seedDB = async () => {
   await Campground.deleteMany({});
-  for (let i = 1; i <= 300; i++) {
+  for (let i = 1; i <= 50; i++) {
     //musi byc w petli, zeby za kazdym razem losowac inny index w tablicy cities
     const random1000 = Math.floor(Math.random() * 1000);
-    const randomPrice = Math.floor(Math.random() * 300).toFixed(2);
+    const randomPrice = Math.floor(Math.random() * 50).toFixed(2);
     //50 nowych instancji modelu Campground
     const c = await new Campground({
       title: `${randomIdx(descriptors)}, ${randomIdx(places)}`,
