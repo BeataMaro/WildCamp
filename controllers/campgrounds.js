@@ -48,7 +48,8 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.editCampground = async (req, res, next) => {
   const { id } = req.params;
-  console.log(req.body);
+  // console.log(req.body);
+
   const edited = await Campground.findByIdAndUpdate(
     id,
     { ...req.body.campground },
@@ -56,14 +57,25 @@ module.exports.editCampground = async (req, res, next) => {
       new: true,
       runValidators: true,
     }
-  );
+  ).populate("geometry");
+
+  const geoData = await geocoder
+    .forwardGeocode({
+      query: req.body.campground.location,
+      limit: 1,
+    })
+    .send();
+
+  const geometry = geoData.body.features[0].geometry;
+
+  edited.geometry = geometry;
   const imgs = req.files.map((f) => ({ url: f.path, filename: f.filename }));
   edited.images.push(...imgs);
+
+  console.log(edited);
   await edited.save();
+
   if (req.body.deleteImages) {
-    // for (let filename of req.body.deleteImages) {
-    //   await cloudinary.uploader.destroy(filename);
-    // }
     req.body.deleteImages.map(async (filename) => {
       await cloudinary.uploader.destroy(filename);
     });
