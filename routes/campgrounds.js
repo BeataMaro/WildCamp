@@ -4,10 +4,10 @@ const multer = require("multer");
 const { storage } = require("../cloudinary");
 const upload = multer({ storage });
 const catchAsync = require("../utils/catchAsync");
-//Model
-const Campground = require("../models/campground");
+
 //Middleware
 const { isLoggedIn, isAuthor, validateCampground } = require("../middleware");
+const Campground = require("../models/campground");
 
 //Controllers
 const campgrounds = require("../controllers/campgrounds");
@@ -26,9 +26,8 @@ router
 // });
 
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
-router.get("/paginated", async (req, res) => {
+router.get("/paginated", (req, res) => {
   const aggregateQuery = Campground.aggregate();
-
   Campground.aggregatePaginate(
     aggregateQuery,
     { page: 1, limit: 2 },
@@ -36,8 +35,7 @@ router.get("/paginated", async (req, res) => {
       if (err) {
         console.err(err);
       } else {
-        const data = result.docs;
-        res.render("campgrounds/paginated", { data });
+        res.json(result);
       }
     }
   );
