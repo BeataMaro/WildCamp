@@ -27,8 +27,9 @@ const userRoutes = require("./routes/users");
 
 const ExpressError = require("./utils/ExpressError");
 
-// const dbUrl = process.env.DB_URL ?? "mongodb://localhost:27017/yelp-camp";
-const dbUrl = "mongodb://localhost:27017/yelp-camp-paginated";
+const dbUrl =
+  process.env.DB_URL ?? "mongodb://localhost:27017/yelp-camp-paginated";
+// const dbUrl = "mongodb://localhost:27017/yelp-camp-paginated";
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
@@ -36,8 +37,6 @@ mongoose.connect(dbUrl, {
   useCreateIndex: true,
   useFindAndModify: false,
 });
-
-//https://mongoosejs.com/docs/index.html
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -51,10 +50,7 @@ app.engine("ejs", engine);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-//Middlewares
-//Body parser (danych z formularzy) express.urlencoded
 app.use(urlencoded({ extended: true }));
-// //Nadpisywanie zmian w formularzu i usuwanie
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
@@ -63,13 +59,13 @@ app.use(
   })
 );
 
-const secret = process.env.SECRET ?? "itshouldbebettersecret";
+const secret = process.env.SECRET ?? "*-`#9Cs%${<q]iT";
 
 //MongoStore
 const store = new MongoStore({
   url: dbUrl,
   secret,
-  touchAfter: 24 * 60 * 60, // 86 400 sekund - uaktualnienie co 24h
+  touchAfter: 24 * 60 * 60, // 86 400 seconds - updated every 24 hours
 });
 
 store.on("error", (e) => {
@@ -132,7 +128,7 @@ app.use(
         "'self'",
         "blob:",
         "data:",
-        "https://res.cloudinary.com/becka/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
+        "https://res.cloudinary.com/becka/",
         "https://images.unsplash.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],
@@ -151,13 +147,10 @@ passport.deserializeUser(User.deserializeUser());
 app.use(morgan("tiny"));
 
 app.use((req, res, next) => {
-  //to przenosi błędnie do originalUrl: /javascripts/validateForms.js jesli ta linijka app.use(express.static(path.join(__dirname, "public"))); jest ponizej
   if (!["/login", "/", "/register"].includes(req.originalUrl)) {
     req.session.returnTo = req.originalUrl;
   }
-  // console.log(req.session);
-  console.log(req.query);
-  res.locals.currentUser = req.user; // logout widac tylko po zalogowaniu - warunek if w nabvar.ejs
+  res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
@@ -166,12 +159,6 @@ app.use((req, res, next) => {
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 app.use("/", userRoutes);
-
-//Middleware functions
-const verifyPassword = (req, res, next) => {
-  const { password } = req.query;
-  password === "kicior" ? next() : res.send("Sorry, password is required!");
-};
 
 //Routes
 
@@ -185,15 +172,8 @@ app.get("/", (req, res) => {
   res.render("campgrounds/home");
 });
 
-//password protected: http://localhost:3000/secret?password=gruszka
-app.get("/secret", verifyPassword, (req, res) => {
-  res.send("This is the Secret Page!");
-});
-
-//np localhost:3000/cats:
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));
-  // res.render("error");
 });
 
 app.use((err, req, res, next) => {

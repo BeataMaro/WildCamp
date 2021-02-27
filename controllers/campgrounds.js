@@ -45,7 +45,6 @@ module.exports.index = async (req, res) => {
       }
     }
   );
-  // res.render("campgrounds/index", { campgrounds });
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -53,6 +52,7 @@ module.exports.renderNewForm = (req, res) => {
 };
 
 module.exports.createCampground = async (req, res, next) => {
+  //MAPBOX
   const geoData = await geocoder
     .forwardGeocode({
       query: req.body.campground.location,
@@ -68,8 +68,9 @@ module.exports.createCampground = async (req, res, next) => {
     filename: f.filename,
   }));
   newCampground.author = req.user._id;
-  await newCampground.save();
   console.log(newCampground);
+  await newCampground.save();
+
   req.flash("success", "Successfully made a new Campground!");
   res.redirect(`/campgrounds/${newCampground._id}`);
 };
@@ -135,7 +136,8 @@ module.exports.renderDetails = async (req, res) => {
         path: "author",
       },
     })
-    .populate("author");
+    .populate("author")
+    .populate("created");
 
   if (!campground) {
     req.flash("error", "Sorry, cannot find that Campground!");

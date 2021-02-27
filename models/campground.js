@@ -59,7 +59,7 @@ campgroundSchema.virtual("properties.popUpMarkup").get(function () {
   <p>${this.description.substring(0, 20)}...</p>`;
 });
 
-//Przy usuwaniu Campground usuwa tez wszystkie jego komentarze
+//When removing Campground, it also deletes all its comments
 campgroundSchema.post("findOneAndDelete", async function (doc) {
   if (doc) {
     await Review.deleteMany({ _id: { $in: doc.reviews } });

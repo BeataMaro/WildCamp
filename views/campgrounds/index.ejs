@@ -4,6 +4,8 @@
   <div id="cluster-map"></div>
   <div class="row my-3">
     <div class="col-md-6">
+      <% if (campgrounds.length) { %>
+
       <nav aria-label="Page navigation">
         <ul class="pagination">
           <% if(totalPages > 1) { %>
@@ -93,6 +95,7 @@
         </ul>
       </div>
     </div>
+    <%}%>
   </div>
 
   <div class="row my-5">
