@@ -7,9 +7,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     req.flash("error", "You must be sign in first!");
     return res.redirect("/login");
-  } else {
-    next();
   }
+  next();
 };
 
 module.exports.isAuthor = async (req, res, next) => {
@@ -36,9 +35,8 @@ module.exports.validateCampground = (req, res, next) => {
   if (error) {
     const msg = error.details.map((detail) => detail.message).join(",");
     throw new ExpressError(msg, 400);
-  } else {
-    next();
   }
+  next();
 };
 
 module.exports.validateReview = (req, res, next) => {
@@ -46,7 +44,6 @@ module.exports.validateReview = (req, res, next) => {
   if (error) {
     const msg = error.details.map((detail) => detail.message).join(",");
     throw new ExpressError(msg, 400);
-  } else {
-    next();
   }
+  next();
 };

@@ -11,7 +11,7 @@
         <%= idx === 0 ? "active" : "" %>" >
         <img
           src="<%=image.url%>"
-          class="d-block w-100"
+          class="d-block w-100 img-fluid"
           alt="<%=campground.title %>"
         />
       </div>
@@ -60,7 +60,7 @@
       <a href="/campgrounds" class="btn btn-light">Back to all Campgrounds</a>
       <% } else { %>
 
-      <a href="/campgrounds" class="btn btn-light">Back to all Campgrounds</a>
+      <a href="/campgrounds" class="btn btn-primary">Back to all Campgrounds</a>
       <% } %>
     </div>
     <div class="card-footer">
@@ -68,10 +68,10 @@
     </div>
   </div>
   </div>
-  <div class="col-6">
+  <div class="col-md-6">
     <div id="map"></div>
     <% if (currentUser) { %>
-    <h3 class="mb-3">Leave a review:</h3>
+    <h3 class="my-4">Leave a review:</h3>
     <form
       action="/campgrounds/<%=campground._id%>/reviews"
       method="POST"
@@ -142,7 +142,7 @@
       <button type="submit" class="btn btn-success">Send</button>
     </form>
     <% } %>
-    <h3>Comments:</h3>
+    <h4 class="my-4">Comments: (<%= campground.reviews.length%>)</h4>
     <% campground.reviews.map(review => { %>
     <div class="card mb-3">
       <div class="card-body">
@@ -172,6 +172,8 @@
 const mapToken = "<%- process.env.MAPBOX_TOKEN %>";
 const campground = <%- JSON.stringify(campground) %>;
 </script>
+
+<!-- <script src="/javascripts/gsap.js"></script> -->
 <script src="/javascripts/showPageMap.js"></script>
   
 

@@ -9,10 +9,10 @@ module.exports.registerUser = async (req, res, next) => {
     const { username, email, password } = req.body;
     const user = new User({ username, email });
     const registeredUser = await User.register(user, password);
-    //Zalogowanie od razu po rejestracji
+    //Log in immediately after registration
     req.login(registeredUser, (err) => {
       if (err) return next(err);
-      console.log(registeredUser);
+
       req.flash("success", "Welcome in Yelp Camp!");
       res.redirect("/campgrounds");
     });

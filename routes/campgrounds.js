@@ -22,20 +22,6 @@ router
   );
 
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
-router.get("/paginated", (req, res) => {
-  const aggregateQuery = Campground.aggregate();
-  Campground.aggregatePaginate(
-    aggregateQuery,
-    { page: 1, limit: 2 },
-    function (err, result) {
-      if (err) {
-        console.err(err);
-      } else {
-        res.json(result);
-      }
-    }
-  );
-});
 
 router.get(
   "/:id/edit",
