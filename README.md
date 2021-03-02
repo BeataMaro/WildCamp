@@ -1,8 +1,8 @@
 # WildCamp - Vacation rental website.
 
-The site is a space advertising for travel and nature enthusiasts looking for a place to stay. 
+The site is an advertising space fo travel and nature enthusiasts looking for a place to stay. 
 A user can be a part of the social by registering and then add, edit and delete the campsites.
-Profile of campground consists of image gallery and reviews which includes rating based on the number of stars.
+Profile of campground consists of image gallery and reviews which include star based rating.
 
 ## Technologies
 Project is created with:
