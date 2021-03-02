@@ -27,9 +27,7 @@ const userRoutes = require("./routes/users");
 
 const ExpressError = require("./utils/ExpressError");
 
-const dbUrl =
-  process.env.DB_URL ?? "mongodb://localhost:27017/yelp-camp-paginated";
-// const dbUrl = "mongodb://localhost:27017/yelp-camp-paginated";
+const dbUrl = process.env.DB_URL ?? "mongodb://localhost:27017/wild-camp";
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,

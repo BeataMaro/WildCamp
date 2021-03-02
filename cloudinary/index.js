@@ -10,7 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "YelpCampPaginated",
+    folder: "WildCamp",
     allowedFormats: ["jpeg", "jpg", "png"],
   },
 });
