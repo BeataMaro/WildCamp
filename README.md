@@ -1,6 +1,8 @@
 # WildCamp - Vacation rental website.
 
-Application for presenting places to rent for a trip stays. The website allows creating a user profile by registering, and then adding, editing and deleting campgrounds. It also provides the option of reviewing other places and rating based on the number of stars.
+The purpose of the site is to be an advertisement space for travel and nature enthusiasts looking for a place to stay. 
+User can become a part of social by registering, and then add, edit and delete the campsites.
+Profile of campground consists of image gallery and reviews which includes rating based on the number of stars.
 
 ## Technologies
 Project is created with:
@@ -22,7 +24,7 @@ $ npm install
 ```
 $ npm start
 ```
-**Build**
+**Deploy**
 ```
 $ npm build
 ```
