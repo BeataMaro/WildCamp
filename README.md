@@ -16,10 +16,10 @@ Project is created with:
 To run this project download source code or clone url.
 
 Install dependencies
-$ npm install
+**$ npm install**
 
 Run
-$ npm start
+**$ npm start**
 
 Build
-$ npm build
+**$ npm build**
