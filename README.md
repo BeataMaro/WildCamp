@@ -1,7 +1,7 @@
 # WildCamp - Vacation rental website.
 
-The purpose of the site is to be an advertisement space for travel and nature enthusiasts looking for a place to stay. 
-User can become a part of social by registering, and then add, edit and delete the campsites.
+The site is a space advertising for travel and nature enthusiasts looking for a place to stay. 
+A user can be a part of the social by registering and then add, edit and delete the campsites.
 Profile of campground consists of image gallery and reviews which includes rating based on the number of stars.
 
 ## Technologies
