@@ -1,6 +1,6 @@
 # WildCamp - Vacation rental website.
 
-Application for presenting places to rent for a trip stays. The website allows creating a user profile by registering, and then adding, editing, deleting campgrounds. It also provides the option of reviewing other places and rating based on the number of stars.
+Application for presenting places to rent for a trip stays. The website allows creating a user profile by registering, and then adding, editing and deleting campgrounds. It also provides the option of reviewing other places and rating based on the number of stars.
 
 ## Technologies
 Project is created with:
