@@ -3,7 +3,7 @@
 Application for presenting places to rent for a trip stays.
 The website allows to create a user profile by registering, and then adding, editing, deleting campgrounds. It also provide option of reviewing other places and rating based on the number of stars.
 
-##Technologies
+## Technologies
 Project is created with:
 
 - Node.js version: 14.15
@@ -12,18 +12,18 @@ Project is created with:
 - MongoDB version: 4.2.6
 - Bootstrap 5
 
-##Setup
+## Setup
 To run this project download source code or clone url.
 
 Install dependencies
 ```
-**$ npm install**
+$ npm install
 ```
-Run
+**Run**
 ```
-**$ npm start**
+$ npm start
 ```
-Build
+**Build**
 ```
-**$ npm build**
+$ npm build
 ```
