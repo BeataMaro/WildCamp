@@ -5,9 +5,9 @@ Application for presenting places to rent for a trip stays. The website allows c
 ## Technologies
 Project is created with:
 
-- Node.js version: 14.15
-- Express version: 4.17
-- EJS version: 3.1
+- Node.js version: 14.15.5
+- Express version: 4.17.1
+- EJS version: 3.1.5
 - MongoDB version: 4.2.6
 - Bootstrap 5
 
