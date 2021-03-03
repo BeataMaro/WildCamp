@@ -79,7 +79,7 @@ const sessionConfig = {
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
-    // secure: true,
+    secure: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
@@ -160,12 +160,6 @@ app.use("/", userRoutes);
 
 //Routes
 
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({ email: "bec@gmx.com", username: "Bec" });
-  const newUser = await User.register(user, "gruszka");
-  res.send(newUser);
-});
-
 app.get("/", (req, res) => {
   res.render("campgrounds/home");
 });
@@ -180,7 +174,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-// const port = process.env.PORT ?? 5000;
-const port = 3000;
+const port = process.env.PORT ?? 3000;
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
