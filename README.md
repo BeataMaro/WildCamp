@@ -1,8 +1,6 @@
 # WildCamp - Vacation rental website.
 
-The site is an advertising space fo travel and nature enthusiasts looking for a place to stay. 
-A user can be a part of the social by registering and then add, edit and delete the campsites.
-Profile of campground consists of image gallery and reviews which include star based rating.
+The website could be an accommodation base. Users can search for lodging reservations located in particular places in the world. Their location is shown on a map. The website provides an option to leave feedback on the particular offer and star-based rating.
 
 ## Technologies
 Project is created with:
@@ -12,6 +10,11 @@ Project is created with:
 - EJS version: 3.1.5
 - MongoDB version: 4.2.6
 - Bootstrap 5
+
+## Libraries
+
+- Mapbox
+- Starability.css
 
 ## Setup
 To run this project download source code or clone url.
