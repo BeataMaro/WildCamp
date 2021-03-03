@@ -5,11 +5,14 @@ The website could be an accommodation base. Users can search for lodging reserva
 ## Technologies
 Project is created with:
 
+- JavaScript ES6
 - Node.js version: 14.15.5
 - Express version: 4.17.1
 - EJS version: 3.1.5
 - MongoDB version: 4.2.6
 - Bootstrap 5
+- Git
+- GitHub
 
 ## Libraries
 
