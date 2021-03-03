@@ -1,6 +1,6 @@
 # WildCamp - Vacation rental website.
 
-The website could be an accommodation base. Users can search for lodging reservations located in particular places in the world. Their location is shown on a map. The website provides an option to leave feedback on the particular offer and star-based rating.
+The website could be an accommodation base. Users can search for lodging reservations located in particular places in the world. Their location is shown on a map. The website provides an option to leave feedback on the particular offer and star-based rating it.
 
 ## Technologies
 Project is created with:
