@@ -108,7 +108,9 @@
       >
     </div>
 
-    <% } %> <% campgrounds.map(campground => { %>
+    <% } %>
+    <div id="box"></div>
+    <% campgrounds.map(campground => { %>
     <div class="card mb-1">
       <div class="row campground">
         <div class="col-md-4">
@@ -124,14 +126,16 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2 class="card-title"><%= campground.title %></h2>
+            <a href="campgrounds/<%=campground._id%>">
+              <h2 class="card-title"><%= campground.title %></h2>
+            </a>
             <p class="card-text">
               <small class="text-muted"><%=campground.location %></small>
             </p>
             <p class="card-text"><%=campground.description%></p>
             <a
               href="campgrounds/<%=campground._id%>"
-              class="btn btn-lg btn-dark"
+              class="btn btn-lg btn-dark text-white"
               >View</a
             >
           </div>

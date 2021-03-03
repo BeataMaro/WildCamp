@@ -42,9 +42,6 @@ body {
   border-bottom: 0.25rem solid var(--yellow);
 }
 
-.lead {
-  font-size: 1rem;
-}
 h1 {
   font-size: 1.3rem;
 }
@@ -69,9 +66,7 @@ h3 {
   .nav-link {
     font-size: 1rem;
   }
-  .lead {
-    font-size: 1.5rem;
-  }
+
   h1 {
     font-size: 2.3rem;
   }
@@ -86,9 +81,7 @@ h3 {
   .nav-link {
     font-size: 1.3rem;
   }
-  .lead {
-    font-size: 1.3rem;
-  }
+
   h1 {
     font-size: 2rem;
   }
