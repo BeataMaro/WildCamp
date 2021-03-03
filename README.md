@@ -22,7 +22,7 @@ Project is created with:
 ## Setup
 To run this project download source code or clone url.
 
-Install dependencies
+**Install dependencies**
 ```
 $ npm install
 ```
