@@ -17,6 +17,7 @@ Project is created with:
 ## Libraries
 
 * Mapbox
+* GSAP version: 3.6.0
 * Starability.css
 
 ## Setup
