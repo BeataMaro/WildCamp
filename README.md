@@ -1,6 +1,6 @@
 # WildCamp - Vacation rental website.
 
-The website could be an accommodation base. Users can search for lodging located in particular places in the world. Their location is shown on a map. The website provides an option to leave feedback on the particular offer and star-based rating it.
+The website could be an accommodation base. Users can search for lodging located in a specific place in the world. Their location is shown on a map. The website provides an option to leave feedback on the particular offer and star-based rating it.
 
 ## Demo: <https://wildcampsite.herokuapp.com/>
 
