@@ -27,7 +27,7 @@ const userRoutes = require("./routes/users");
 
 const ExpressError = require("./utils/ExpressError");
 
-const dbUrl = process.env.DB_URL ?? "mongodb://localhost:27017/wild-camp";
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
@@ -174,6 +174,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-const port = process.env.PORT ?? 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
